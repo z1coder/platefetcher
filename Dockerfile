@@ -6,6 +6,8 @@ MAINTAINER Yash Indane <yashindane46@gmail.com>
 
 LABEL platform="linux/arm64/v8" version="arm64v8"
 
+LABEL org.opencontainers.image.source https://github.com/z1coder/platefetcher
+
 COPY . /platefetch/
 
 WORKDIR /platefetch
