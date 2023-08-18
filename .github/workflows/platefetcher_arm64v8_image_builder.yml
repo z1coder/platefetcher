@@ -1,19 +1,20 @@
 name: Docker Build/Publish Image 
 
-on:  
-  push:    
-    branches: [ main ]  
+on:  workflow_dispatch
     
 jobs:   
 
   build:    
-    runs-on: ubuntu-22.04  
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: write
     
     env:      
-      DOCKER_REGISTRY: docker.io      
-      DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/demoplate   
-      DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_AT }}  
+      DOCKER_REGISTRY: ghcr.io    
+      DOCKER_IMAGE: ${{ github.repository }}
+      DOCKER_USERNAME: ${{ github.actor }}
+      DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}  
       DOCKER_TARGET_PLATFORM: linux/arm64/v8  
       
     steps:   
