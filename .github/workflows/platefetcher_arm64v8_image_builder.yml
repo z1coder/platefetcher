@@ -14,7 +14,7 @@ jobs:
       DOCKER_REGISTRY: ghcr.io    
       DOCKER_IMAGE: ${{ github.repository }}
       DOCKER_USERNAME: ${{ github.actor }}
-      DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}  
+      DOCKER_PASSWORD: ${{ secrets.TOK }}  
       DOCKER_TARGET_PLATFORM: linux/arm64/v8  
       
     steps:   
